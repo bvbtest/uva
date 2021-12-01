@@ -1,0 +1,13 @@
+{
+  "isRechtspersoon": true,
+  "naamRechtspersoon": "Test B.V.",
+  "omzet": 100000,
+  "aantalWerknemers": 10,
+  "energieLabel": "A",
+  "aantalGeredenKilometers": 1000,
+  "verschuldigdeBelasting": 0,
+  "isBinnenlandsBelastingplichtig": true,
+  "aangifteJaar": 2021,
+  "kilogrammenUitstoot": 1000,
+  "fiscaalNummer": "123456789"
+}

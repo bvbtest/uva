@@ -1,11 +1,12 @@
 package nl.uva.api;
 
+import nl.uva.data.MyInputModel;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.validation.Valid;
+import javax.ws.rs.*;
+
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Component
 @Path("/api/v1/")
@@ -19,6 +20,14 @@ public class Endpoint {
         } else if (id.equals("2021")) {
             return "Awesome 2021";
         } else return "Bullshit";
+    }
+
+    @POST
+    @Consumes(APPLICATION_JSON)
+    @Produces(APPLICATION_JSON)
+    @Path("/awesome/")
+    public MyInputModel getAwesome(@Valid MyInputModel model) {
+        return model;
     }
 
 }
