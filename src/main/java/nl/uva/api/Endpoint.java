@@ -1,9 +1,10 @@
 package nl.uva.api;
 
 import nl.uva.data.MyInputModel;
+import nl.uva.domain.InputCalculator;
+import nl.uva.domain.InputCalculatorImpl;
 import org.springframework.stereotype.Component;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -26,8 +27,9 @@ public class Endpoint {
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
     @Path("/awesome/")
-    public MyInputModel getAwesome(@Valid MyInputModel model) {
-        return model;
+    public Long getAwesome(MyInputModel model) {
+        InputCalculator inputCalculator = new InputCalculatorImpl();
+        return inputCalculator.getCalculation(model);
     }
 
 }
