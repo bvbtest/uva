@@ -19,7 +19,7 @@ public class Endpoint {
         return "Awesome";
     }
 
-    @Path("/awesome2/{id}")
+    @Path("/awesome/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAwesome(@PathParam("id") String id) {
