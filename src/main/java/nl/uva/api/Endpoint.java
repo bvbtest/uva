@@ -1,5 +1,6 @@
 package nl.uva.api;
 
+import nl.uva.data.MyInputModel;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.GET;
@@ -15,8 +16,15 @@ public class Endpoint {
     @Path("/awesome")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAwesome() {
-        return "Awesome";
+    public MyInputModel getAwesome() {
+        MyInputModel myCustomInputModel = new MyInputModel();
+        myCustomInputModel.setJaartal(2022);
+        myCustomInputModel.setBsn("111111110");
+        myCustomInputModel.setDiabetes(false);
+        myCustomInputModel.setVoldoetAanKeurmerk(true);
+        myCustomInputModel.setGramSuiker(100);
+        myCustomInputModel.setGewichtProductInGram(1000);
+        return myCustomInputModel;
     }
 
     @Path("/awesome/{id}")
