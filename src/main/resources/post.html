@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Pagina</title>
+
+</head>
+<body>
+<script>
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("Cookie", "JSESSIONID=E32E5F22746A3071205E794BA387CF61; XSRF-TOKEN=eb5e898d-cf89-4022-9d3a-ac51f5458847; _AVESTA_ENVIRONMENT=prod");
+
+    var raw = JSON.stringify({
+        "jaartal": 0,
+        "bsn": null,
+        "voldoetAanKeurmerk": false,
+        "gramSuiker": 0,
+        "gewichtProductInGram": 0,
+        "diabetes": false
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:8080/api/v1/awesome", requestOptions)
+        .then(response => response.text())
+        .then(result =>     document.body.innerHTML = result)
+        .catch(error => console.log('error', error));
+</script>
+</body>
+</html>
